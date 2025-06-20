@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import CuddleBear from './components/CuddleBear';
 import { BedrockService } from './lib/bedrock-service';
 import { IoTEdgeService } from './lib/iot-edge-service';
@@ -8,10 +8,9 @@ import { IoTEdgeService } from './lib/iot-edge-service';
 export default function Home() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [bearResponse, setBearResponse] = useState('');
-  const [isListening, setIsListening] = useState(false);
   
-  const bedrockService = new BedrockService();
-  const iotEdgeService = new IoTEdgeService();
+  const bedrockService = useMemo(() => new BedrockService(), []);
+  const iotEdgeService = useMemo(() => new IoTEdgeService(), []);
 
   const handleSpeechResult = useCallback(async (userInput: string) => {
     if (!userInput.trim()) return;
@@ -39,10 +38,9 @@ export default function Home() {
     } finally {
       setIsProcessing(false);
     }
-  }, []);
+  }, [bedrockService, iotEdgeService]);
 
   const handleMicToggle = useCallback((listening: boolean) => {
-    setIsListening(listening);
     if (listening) {
       setBearResponse('');
     }
