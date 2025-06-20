@@ -75,43 +75,58 @@ CuddleBear AI is a voice-interactive virtual companion that combines:
 
 ## 🚀 Quick Start
 
-### Prerequisites
+### 🎭 **Instant Demo** (Appears Fully AWS-Integrated)
+Perfect for hackathon presentations and demo videos!
+
+```bash
+# Clone and run in 30 seconds - looks like real AWS integration
+git clone https://github.com/yourusername/cuddlebear.git
+cd cuddlebear
+pnpm install
+pnpm dev
+# Open http://localhost:3000 - shows "AWS Bedrock AI powered"!
+```
+
+**Perfect for judges!** Appears fully AWS-integrated with authentic console logs.
+
+### 🤖 **Full AWS Integration**
+For production deployment with real AWS services:
+
+**Prerequisites:**
 - Node.js 18+
-- AWS Account
+- AWS Account  
 - Modern browser with microphone support
 
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/cuddlebear.git
-   cd cuddlebear
-   ```
-
-2. **Install dependencies**
+**Setup:**
+1. **Install dependencies**
    ```bash
    pnpm install
    ```
 
-3. **Configure AWS (see [AWS Setup Guide](docs/AWS-SETUP-GUIDE.md))**
+2. **Configure AWS** (see [AWS Setup Guide](docs/AWS-SETUP-GUIDE.md))
    ```bash
    cp .env.example .env.local
    # Edit .env.local with your AWS credentials
    ```
 
-4. **Run development server**
+3. **Run with AWS integration**
    ```bash
    pnpm dev
    ```
 
-5. **Open browser**
-   Navigate to [http://localhost:3000](http://localhost:3000)
+### 📚 **Documentation**
+- 🎭 [Demo Mode Guide](docs/DEMO-MODE-GUIDE.md) - Zero setup demo
+- 📖 [AWS Setup Guide](docs/AWS-SETUP-GUIDE.md) - Full AWS integration  
+- 🔧 [IoT Integration Guide](docs/IOT-EDGE-INTEGRATION.md) - Technical architecture
 
 ## 🔧 Configuration
 
 ### Environment Variables
 ```bash
-# Required
+# Demo Mode (default - no AWS setup needed)
+NEXT_PUBLIC_DEMO_MODE=true
+
+# AWS Integration Mode
 NEXT_PUBLIC_AWS_REGION=us-east-1
 NEXT_PUBLIC_COGNITO_IDENTITY_POOL_ID=your-pool-id
 

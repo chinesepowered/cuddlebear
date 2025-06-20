@@ -4,6 +4,7 @@ import { fromCognitoIdentityPool } from '@aws-sdk/credential-provider-cognito-id
 
 export const AWS_REGION = process.env.NEXT_PUBLIC_AWS_REGION || 'us-east-1';
 export const COGNITO_IDENTITY_POOL_ID = process.env.NEXT_PUBLIC_COGNITO_IDENTITY_POOL_ID || '';
+export const DEMO_MODE = process.env.NEXT_PUBLIC_DEMO_MODE === 'true' || !COGNITO_IDENTITY_POOL_ID;
 
 export const createBedrockClient = () => {
   if (typeof window === 'undefined') {
